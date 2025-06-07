@@ -1,50 +1,175 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>MyVPN — Защити своё онлайн-пространство</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MyVPN — Защити своё онлайн-пространство</title>
+  <style>
+    /* Базовые стили */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f7fa;
+      color: #333;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4e73df, #3b5998);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #fff;
+      color: #3b5998;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #e6ecf8;
+      transform: scale(1.05);
+    }
+
+    section {
+      background: white;
+      padding: 30px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      color: #3b5998;
+      margin-bottom: 15px;
+      border-left: 5px solid #4e73df;
+      padding-left: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li::before {
+      content: "✨";
+      margin-right: 10px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    input[type="email"] {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      min-width: 200px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #4e73df;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #3b5998;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background: #e9ecef;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="container">
-            <h1>MyVPN</h1>
-            <p>Быстро. Безопасно. Анонимно.</p>
-            <a href="#download" class="btn">Скачать приложение</a>
-        </div>
+  <div class="container">
+
+    <header>
+      <h1>MyVPN</h1>
+      <p>Быстро. Безопасно. Анонимно.</p>
+      <a href="#download" class="btn">Скачать приложение</a>
     </header>
 
-    <section class="features">
-        <div class="container">
-            <h2>Почему выбирают MyVPN?</h2>
-            <ul>
-                <li>🔒 Шифрование данных 256-bit</li>
-                <li>🌍 Серверы по всему миру</li>
-                <li>📱 Поддержка всех платформ: Windows, macOS, Android, iOS</li>
-                <li>⚡ Нет логов пользовательской активности</li>
-                <li>🕒 Бесплатный пробный период 7 дней</li>
-            </ul>
-        </div>
+    <section>
+      <h2>Почему выбирают MyVPN?</h2>
+      <ul>
+        <li>Шифрование данных 256-bit</li>
+        <li>Серверы по всему миру</li>
+        <li>Поддержка всех платформ: Windows, macOS, Android, iOS</li>
+        <li>Нет логов пользовательской активности</li>
+        <li>Бесплатный пробный период 7 дней</li>
+      </ul>
     </section>
 
-    <section class="cta">
-        <div class="container">
-            <h2>Попробуйте бесплатно</h2>
-            <p>Введите свой email, чтобы получить ссылку для скачивания:</p>
-            <form>
-                <input type="email" placeholder="Ваш email" required>
-                <button type="submit" class="btn">Получить доступ</button>
-            </form>
-        </div>
+    <section id="download">
+      <h2>Попробуйте бесплатно</h2>
+      <p>Введите свой email, чтобы получить ссылку для скачивания:</p>
+      <form>
+        <input type="email" placeholder="Ваш email" required />
+        <button type="submit">Получить доступ</button>
+      </form>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2025 MyVPN. Все права защищены.</p>
-        </div>
+      <p>&copy; 2025 MyVPN. Все права защищены.</p>
     </footer>
+
+  </div>
 
 </body>
 </html>
