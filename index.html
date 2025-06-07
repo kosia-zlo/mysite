@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GhostVPN — Защити своё онлайн-пространство</title>
   <style>
+    :root {
+      --bg-color: #f4f7fa;
+      --text-color: #333;
+      --accent-color: #4e73df;
+      --card-bg: white;
+      --shadow: rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #eee;
+      --accent-color: #6366f1;
+      --card-bg: #1e1e1e;
+      --shadow: rgba(255, 255, 255, 0.05);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -14,8 +30,9 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
-      background-color: #f4f7fa;
-      color: #333;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     .container {
@@ -25,22 +42,45 @@
     }
 
     header.hero {
-      background: linear-gradient(135deg, #4e73df, #3b5998);
+      background: linear-gradient(135deg, var(--accent-color), #3b5998);
       color: white;
       text-align: center;
       padding: 80px 20px;
       border-radius: 10px;
       margin-bottom: 40px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      position: relative;
     }
 
     header h1 {
       font-size: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    header h1 img {
+      height: 40px;
+      vertical-align: middle;
     }
 
     header p {
       font-size: 1.2rem;
       margin: 20px 0;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
     }
 
     .btn {
@@ -60,17 +100,17 @@
     }
 
     section {
-      background: white;
+      background: var(--card-bg);
       padding: 30px;
       margin-bottom: 30px;
       border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 10px rgba(0,0,0,var(--shadow));
     }
 
     h2 {
-      color: #3b5998;
+      color: var(--accent-color);
       margin-bottom: 15px;
-      border-left: 5px solid #4e73df;
+      border-left: 5px solid var(--accent-color);
       padding-left: 10px;
     }
 
@@ -103,16 +143,17 @@
       border-radius: 10px;
       text-align: center;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: background 0.3s ease;
     }
 
-    .card h3 {
-      color: #4e73df;
+    [data-theme="dark"] .card {
+      background: #2a2a2a;
     }
 
     .reviews blockquote {
       margin: 10px 0;
       padding-left: 15px;
-      border-left: 3px solid #4e73df;
+      border-left: 3px solid var(--accent-color);
     }
 
     .qr-code {
@@ -137,7 +178,7 @@
       display: inline-block;
       width: 40px;
       height: 40px;
-      background-color: #4e73df;
+      background-color: var(--accent-color);
       color: white;
       border-radius: 50%;
       text-align: center;
@@ -165,9 +206,43 @@
       color: #555;
     }
 
+    [data-theme="dark"] footer {
+      background: #2a2a2a;
+      color: #ccc;
+    }
+
+    /* Серверы */
+    .server-list {
+      display: flex;
+      overflow-x: auto;
+      gap: 15px;
+      padding: 10px 0;
+    }
+
+    .server-card {
+      flex: 0 0 auto;
+      width: 150px;
+      height: 100px;
+      background-color: #e8f0fe;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #3b5998;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .server-card:hover {
+      background-color: #d0e0ff;
+    }
+
     @media (max-width: 600px) {
       header h1 {
         font-size: 2rem;
+        flex-direction: column;
       }
       .pricing {
         flex-direction: column;
@@ -181,9 +256,12 @@
 
   <!-- Hero -->
   <header class="hero">
-    <h1>GhostVPN</h1>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    <h1>
+      <img src="https://quickchart.io/placeholder?text=🛡️&width=40&height=40" alt="Логотип GhostVPN"> GhostVPN
+    </h1>
     <p>Быстро. Безопасно. Анонимно.</p>
-    <a href="#download" class="btn">Скачать приложение</a>
+    <a href="#download" class="btn">Скачать приложение</a> 
   </header>
 
   <!-- Преимущества -->
@@ -196,6 +274,24 @@
       <li>Нет логов пользовательской активности</li>
       <li>Бесплатный пробный период 7 дней</li>
     </ul>
+  </section>
+
+  <!-- Серверы -->
+  <section>
+    <h2>Доступные серверы</h2>
+    <p>Выберите регион для подключения:</p>
+    <div class="server-list">
+      <div class="server-card">🌐 Европа</div>
+      <div class="server-card">🇺🇸 США</div>
+      <div class="server-card">🇨🇦 Канада</div>
+      <div class="server-card">🇯🇵 Япония</div>
+      <div class="server-card">🇰🇷 Южная Корея</div>
+      <div class="server-card">🇦🇺 Австралия</div>
+      <div class="server-card">🇧🇷 Бразилия</div>
+      <div class="server-card">🇦🇪 ОАЭ</div>
+      <div class="server-card">🇮🇳 Индия</div>
+      <div class="server-card">🇹🇷 Турция</div>
+    </div>
   </section>
 
   <!-- Тарифы -->
@@ -281,6 +377,28 @@
   </footer>
 
 </div>
+
+<script>
+  function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    if (currentTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+      document.querySelector('.theme-toggle').textContent = '🌙';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      document.querySelector('.theme-toggle').textContent = '☀️';
+    }
+  }
+
+  // Установить тему из localStorage
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+  });
+</script>
 
 </body>
 </html>
