@@ -138,10 +138,11 @@
     .server-card {
       flex: 0 0 auto;
       width: 150px;
-      height: 100px;
+      min-height: 100px;
       background-color: #e8f0fe;
       border-radius: 10px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       font-weight: bold;
@@ -150,13 +151,14 @@
       transition: background-color 0.3s ease;
       cursor: pointer;
       position: relative;
+      text-align: center;
+      padding: 10px;
     }
 
     .server-card:hover {
       background-color: #d0e0ff;
     }
 
-    /* Кружок статуса */
     .status-dot {
       position: absolute;
       top: 5px;
@@ -165,6 +167,12 @@
       height: 10px;
       border-radius: 50%;
       background-color: #ccc;
+    }
+
+    .ping-time {
+      font-size: 0.9rem;
+      margin-top: 5px;
+      color: gray;
     }
 
     /* Модальное окно */
@@ -227,11 +235,11 @@
     <h2>Доступные серверы</h2>
     <p>Выберите регион для подключения:</p>
     <div class="server-list">
-      <div class="server-card" data-region="Европа" onclick="showServerInfo('Европа', 'Пинг: 25 мс', 'Загрузка: 30%')">🌐 Европа<div class="status-dot"></div></div>
-      <div class="server-card" data-region="США" onclick="showServerInfo('США', 'Пинг: 30 мс', 'Загрузка: 50%')">🇺🇸 США<div class="status-dot"></div></div>
-      <div class="server-card" data-region="Канада" onclick="showServerInfo('Канада', 'Пинг: 40 мс', 'Загрузка: 20%')">🇨🇦 Канада<div class="status-dot"></div></div>
-      <div class="server-card" data-region="Япония" onclick="showServerInfo('Япония', 'Пинг: 90 мс', 'Загрузка: 60%')">🇯🇵 Япония<div class="status-dot"></div></div>
-      <div class="server-card" data-region="Южная Корея" onclick="showServerInfo('Южная Корея', 'Пинг: 100 мс', 'Загрузка: 40%')">🇰🇷 Южная Корея<div class="status-dot"></div></div>
+      <div class="server-card" data-region="Европа" onclick="showServerInfo('Европа', 'Пинг: — мс', 'Загрузка: — %')">🌐 Европа<div class="status-dot"></div><div class="ping-time" id="ping-Европа">Ping: — мс</div></div>
+      <div class="server-card" data-region="США" onclick="showServerInfo('США', 'Пинг: — мс', 'Загрузка: — %')">🇺🇸 США<div class="status-dot"></div><div class="ping-time" id="ping-США">Ping: — мс</div></div>
+      <div class="server-card" data-region="Канада" onclick="showServerInfo('Канада', 'Пинг: — мс', 'Загрузка: — %')">🇨🇦 Канада<div class="status-dot"></div><div class="ping-time" id="ping-Канада">Ping: — мс</div></div>
+      <div class="server-card" data-region="Япония" onclick="showServerInfo('Япония', 'Пинг: — мс', 'Загрузка: — %')">🇯🇵 Япония<div class="status-dot"></div><div class="ping-time" id="ping-Япония">Ping: — мс</div></div>
+      <div class="server-card" data-region="Южная Корея" onclick="showServerInfo('Южная Корея', 'Пинг: — мс', 'Загрузка: — %')">🇰🇷 Южная Корея<div class="status-dot"></div><div class="ping-time" id="ping-Южная Корея">Ping: — мс</div></div>
     </div>
   </section>
 
@@ -289,13 +297,13 @@
     }
   }
 
-  // Автообновление статуса серверов
+  // Проверка пинга
   const servers = [
-    { region: "Европа", url: "94.159.111.182"  },
-    { region: "США", url: "77.91.86.53"  },
-    { region: "Канада", url: "46.0.234.27"  },
-    { region: "Япония", url: "193.233.134.83"  },
-    { region: "Южная Корея", url: "92.42.102.183"  }
+    { region: "Европа", url: "https://eu-server.example.com/ping"  },
+    { region: "США", url: "https://us-server.example.com/ping"  },
+    { region: "Канада", url: "https://ca-server.example.com/ping"  },
+    { region: "Япония", url: "https://jp-server.example.com/ping"  },
+    { region: "Южная Корея", url: "https://kr-server.example.com/ping"  }
   ];
 
   const serverCards = {};
@@ -307,7 +315,8 @@
       if (!region) return;
 
       const dot = card.querySelector('.status-dot');
-      serverCards[region] = { card, dot };
+      const pingEl = document.getElementById(`ping-${region}`);
+      serverCards[region] = { card, dot, pingEl };
     });
   }
 
@@ -315,14 +324,21 @@
     const entry = serverCards[server.region];
     if (!entry) return;
 
+    const { dot, pingEl } = entry;
+
     try {
+      const start = performance.now();
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 5000);
 
       const response = await fetch(server.url, { signal: controller.signal });
-      entry.dot.style.backgroundColor = '#4CAF50'; // Зелёный — доступен
+      const end = performance.now();
+
+      dot.style.backgroundColor = '#4CAF50'; // Зелёный — доступен
+      pingEl.innerText = `Ping: ${Math.round(end - start)} мс`;
     } catch (err) {
-      entry.dot.style.backgroundColor = '#f44336'; // Красный — недоступен
+      dot.style.backgroundColor = '#f44336'; // Красный — недоступен
+      pingEl.innerText = `Ping: ❌ Недоступен`;
     }
   }
 
@@ -331,8 +347,8 @@
       servers.forEach(pingServer);
     }
 
-    checkAllServers(); // первый запуск
-    setInterval(checkAllServers, intervalMinutes * 60 * 1000); // по расписанию
+    checkAllServers(); // Первый запуск
+    setInterval(checkAllServers, intervalMinutes * 60 * 1000); // По расписанию
   }
 </script>
 
