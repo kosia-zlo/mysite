@@ -128,6 +128,90 @@
       margin-bottom: 10px;
     }
 
+    .pricing {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 250px;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: background 0.3s ease;
+    }
+
+    [data-theme="dark"] .card {
+      background: #2a2a2a;
+    }
+
+    .reviews blockquote {
+      margin: 10px 0;
+      padding-left: 15px;
+      border-left: 3px solid var(--accent-color);
+    }
+
+    .qr-code {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .qr-code img {
+      max-width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .socials a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      text-decoration: none;
+      font-size: 20px;
+      transition: background 0.3s ease;
+    }
+
+    .socials a:hover {
+      background-color: #3b5998;
+    }
+
+    details {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background: #e9ecef;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    [data-theme="dark"] footer {
+      background: #2a2a2a;
+      color: #ccc;
+    }
+
+    /* Серверы */
     .server-list {
       display: flex;
       overflow-x: auto;
@@ -213,6 +297,9 @@
         font-size: 2rem;
         flex-direction: column;
       }
+      .pricing {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -230,18 +317,132 @@
     <a href="#download" class="btn">Скачать приложение</a> 
   </header>
 
+  <!-- Преимущества -->
+  <section>
+    <h2>Почему выбирают GhostVPN?</h2>
+    <ul>
+      <li>Шифрование данных 256-bit</li>
+      <li>Серверы по всему миру</li>
+      <li>Поддержка всех платформ: Windows, macOS, Android, iOS</li>
+      <li>Нет логов пользовательской активности</li>
+      <li>Бесплатный пробный период 7 дней</li>
+    </ul>
+  </section>
+
   <!-- Серверы -->
   <section>
     <h2>Доступные серверы</h2>
     <p>Выберите регион для подключения:</p>
     <div class="server-list">
-      <div class="server-card" data-region="Европа" onclick="showServerInfo('Европа', 'Пинг: — мс', 'Загрузка: — %')">🌐 Европа<div class="status-dot"></div><div class="ping-time" id="ping-Европа">Ping: — мс</div></div>
-      <div class="server-card" data-region="США" onclick="showServerInfo('США', 'Пинг: — мс', 'Загрузка: — %')">🇺🇸 США<div class="status-dot"></div><div class="ping-time" id="ping-США">Ping: — мс</div></div>
-      <div class="server-card" data-region="Канада" onclick="showServerInfo('Канада', 'Пинг: — мс', 'Загрузка: — %')">🇨🇦 Канада<div class="status-dot"></div><div class="ping-time" id="ping-Канада">Ping: — мс</div></div>
-      <div class="server-card" data-region="Япония" onclick="showServerInfo('Япония', 'Пинг: — мс', 'Загрузка: — %')">🇯🇵 Япония<div class="status-dot"></div><div class="ping-time" id="ping-Япония">Ping: — мс</div></div>
-      <div class="server-card" data-region="Южная Корея" onclick="showServerInfo('Южная Корея', 'Пинг: — мс', 'Загрузка: — %')">🇰🇷 Южная Корея<div class="status-dot"></div><div class="ping-time" id="ping-Южная Корея">Ping: — мс</div></div>
+      <div class="server-card" data-region="Европа" onclick="showServerInfo('Европа', 'Пинг: — мс', 'Загрузка: — %')">
+        🌐 Европа
+        <div class="status-dot"></div>
+        <div class="ping-time" id="ping-Европа">Ping: — мс</div>
+      </div>
+      <div class="server-card" data-region="США" onclick="showServerInfo('США', 'Пинг: — мс', 'Загрузка: — %')">
+        🇺🇸 США
+        <div class="status-dot"></div>
+        <div class="ping-time" id="ping-США">Ping: — мс</div>
+      </div>
+      <div class="server-card" data-region="Канада" onclick="showServerInfo('Канада', 'Пинг: — мс', 'Загрузка: — %')">
+        🇨🇦 Канада
+        <div class="status-dot"></div>
+        <div class="ping-time" id="ping-Канада">Ping: — мс</div>
+      </div>
+      <div class="server-card" data-region="Япония" onclick="showServerInfo('Япония', 'Пинг: — мс', 'Загрузка: — %')">
+        🇯🇵 Япония
+        <div class="status-dot"></div>
+        <div class="ping-time" id="ping-Япония">Ping: — мс</div>
+      </div>
+      <div class="server-card" data-region="Южная Корея" onclick="showServerInfo('Южная Корея', 'Пинг: — мс', 'Загрузка: — %')">
+        🇰🇷 Южная Корея
+        <div class="status-dot"></div>
+        <div class="ping-time" id="ping-Южная Корея">Ping: — мс</div>
+      </div>
     </div>
   </section>
+
+  <!-- Тарифы -->
+  <section>
+    <h2>Тарифные планы</h2>
+    <div class="pricing">
+      <div class="card">
+        <h3>Бесплатно</h3>
+        <p>7 дней бесплатно</p>
+        <ul>
+          <li>1 страна</li>
+          <li>Ограниченная скорость</li>
+        </ul>
+        <a href="#" class="btn">Попробовать</a>
+      </div>
+      <div class="card">
+        <h3>PRO</h3>
+        <p>9.99 $ / месяц</p>
+        <ul>
+          <li>Все страны</li>
+          <li>Безлимитный трафик</li>
+        </ul>
+        <a href="#" class="btn">Купить</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Отзывы -->
+  <section class="reviews">
+    <h2>Что говорят пользователи</h2>
+    <blockquote>«Отличный сервис, быстрая поддержка и удобное приложение.» — Максим</blockquote>
+    <blockquote>«Использую GhostVPN уже год. Очень доволен анонимностью.» — Анастасия</blockquote>
+    <blockquote>«Просто, быстро, безопасно. Рекомендую друзьям.» — Денис</blockquote>
+  </section>
+
+  <!-- Скачать -->
+  <section id="download">
+    <h2>Попробуйте бесплатно</h2>
+    <p>Введите свой email, чтобы получить ссылку для скачивания:</p>
+    <form>
+      <input type="email" placeholder="Ваш email" required style="width: 100%; padding: 10px; margin-bottom: 10px;">
+      <button type="submit" style="padding: 10px 20px; width: 100%;">Получить доступ</button>
+    </form>
+
+    <div class="qr-code">
+      <h3>Сканируйте QR-код</h3>
+      <img src="https://quickchart.io/qr?text=https://t.me/ghostvpn_bot&size=200" alt="QR-код для Telegram-бота">
+      <p><a href="https://t.me/ghostvpn_bot" target="_blank">👉 Перейти к боту</a></p>
+    </div>
+  </section>
+
+  <!-- Соцсети -->
+  <section>
+    <h2>Мы в социальных сетях</h2>
+    <div class="socials">
+      <a href="https://t.me/ghostvpn" target="_blank" title="Telegram">✈️</a>
+      <a href="https://instagram.com/ghostvpn" target="_blank" title="Instagram">📷</a>
+      <a href="https://twitter.com/ghostvpn" target="_blank" title="Twitter">🐦</a>
+      <a href="https://vk.com/ghostvpn" target="_blank" title="VK">.VK</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <h2>FAQ</h2>
+    <details>
+      <summary>Как подключиться?</summary>
+      <p>Скачайте приложение, войдите через Telegram-бота.</p>
+    </details>
+    <details>
+      <summary>Подходит ли GhostVPN для торрентов?</summary>
+      <p>Да, мы не сохраняем логи активности и поддерживаем P2P-соединения.</p>
+    </details>
+    <details>
+      <summary>Есть ли мобильное приложение?</summary>
+      <p>Да, GhostVPN доступен на Android и iOS.</p>
+    </details>
+  </section>
+
+  <!-- Подвал -->
+  <footer>
+    <p>&copy; 2025 GhostVPN. Все права защищены.</p>
+  </footer>
 
 </div>
 
@@ -299,11 +500,11 @@
 
   // Проверка пинга
   const servers = [
-    { region: "Европа", url: "https://eu-server.example.com/ping"  },
-    { region: "США", url: "https://us-server.example.com/ping"  },
-    { region: "Канада", url: "https://ca-server.example.com/ping"  },
-    { region: "Япония", url: "https://jp-server.example.com/ping"  },
-    { region: "Южная Корея", url: "https://kr-server.example.com/ping"  }
+    { region: "Европа", url: "https://eu-server.example.com/ping" },
+    { region: "США", url: "https://us-server.example.com/ping" },
+    { region: "Канада", url: "https://ca-server.example.com/ping" },
+    { region: "Япония", url: "https://jp-server.example.com/ping" },
+    { region: "Южная Корея", url: "https://kr-server.example.com/ping" }
   ];
 
   const serverCards = {};
@@ -332,9 +533,11 @@
       const timeoutId = setTimeout(() => controller.abort(), 5000);
 
       const response = await fetch(server.url, { signal: controller.signal });
+      clearTimeout(timeoutId);
+
       const end = performance.now();
 
-      dot.style.backgroundColor = '#4CAF50'; // Зелёный — доступен
+      dot.style.backgroundColor = '#4CAF50'; // Зелёный — доступен 
       pingEl.innerText = `Ping: ${Math.round(end - start)} мс`;
     } catch (err) {
       dot.style.backgroundColor = '#f44336'; // Красный — недоступен
@@ -347,8 +550,8 @@
       servers.forEach(pingServer);
     }
 
-    checkAllServers(); // Первый запуск
-    setInterval(checkAllServers, intervalMinutes * 60 * 1000); // По расписанию
+    checkAllServers(); // первый запуск
+    setInterval(checkAllServers, intervalMinutes * 60 * 1000); // по расписанию
   }
 </script>
 
