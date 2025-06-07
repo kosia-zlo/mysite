@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MyVPN — Защити своё онлайн-пространство</title>
+  <title>GhostVPN — Защити своё онлайн-пространство</title>
   <style>
     /* Базовые стили */
     * {
@@ -118,6 +118,42 @@
       background: #3b5998;
     }
 
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .socials a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: #4e73df;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      text-decoration: none;
+      font-size: 20px;
+      transition: background 0.3s ease;
+    }
+
+    .socials a:hover {
+      background-color: #3b5998;
+    }
+
+    .qr-code {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .qr-code img {
+      max-width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
     footer {
       text-align: center;
       margin-top: 40px;
@@ -137,39 +173,56 @@
 </head>
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <header>
-      <h1>MyVPN</h1>
-      <p>Быстро. Безопасно. Анонимно.</p>
-      <a href="#download" class="btn">Скачать приложение</a>
-    </header>
+  <header>
+    <h1>GhostVPN</h1>
+    <p>Быстро. Безопасно. Анонимно.</p>
+    <a href="#download" class="btn">Скачать приложение</a>
+  </header>
 
-    <section>
-      <h2>Почему выбирают MyVPN?</h2>
-      <ul>
-        <li>Шифрование данных 256-bit</li>
-        <li>Серверы по всему миру</li>
-        <li>Поддержка всех платформ: Windows, macOS, Android, iOS</li>
-        <li>Нет логов пользовательской активности</li>
-        <li>Бесплатный пробный период 7 дней</li>
-      </ul>
-    </section>
+  <section>
+    <h2>Почему выбирают GhostVPN?</h2>
+    <ul>
+      <li>Шифрование данных 256-bit</li>
+      <li>Серверы по всему миру</li>
+      <li>Поддержка всех платформ: Windows, macOS, Android, iOS</li>
+      <li>Нет логов пользовательской активности</li>
+      <li>Бесплатный пробный период 7 дней</li>
+    </ul>
+  </section>
 
-    <section id="download">
-      <h2>Попробуйте бесплатно</h2>
-      <p>Введите свой email, чтобы получить ссылку для скачивания:</p>
-      <form>
-        <input type="email" placeholder="Ваш email" required />
-        <button type="submit">Получить доступ</button>
-      </form>
-    </section>
+  <section id="download">
+    <h2>Попробуйте бесплатно</h2>
+    <p>Введите свой email, чтобы получить ссылку для скачивания:</p>
+    <form>
+      <input type="email" placeholder="Ваш email" required />
+      <button type="submit">Получить доступ</button>
+    </form>
+  </section>
 
-    <footer>
-      <p>&copy; 2025 MyVPN. Все права защищены.</p>
-    </footer>
+  <section class="qr-code">
+    <h2>Связь с нами</h2>
+    <p>Сканируйте QR-код, чтобы подключиться к нашему боту в Telegram:</p>
+    <img src="https://quickchart.io/qr?text=https://t.me/your_ghostvpn_bot&size=200" alt="QR-код для Telegram-бота">
+    <p><a href="https://t.me/your_ghostvpn_bot" target="_blank">👉 Перейти к боту напрямую</a></p>
+  </section>
 
-  </div>
+  <section>
+    <h2>Мы в социальных сетях</h2>
+    <div class="socials">
+      <a href="https://t.me/your_ghostvpn" target="_blank" title="Telegram">✈️</a>
+      <a href="https://instagram.com/your_ghostvpn" target="_blank" title="Instagram">📷</a>
+      <a href="https://twitter.com/your_ghostvpn" target="_blank" title="Twitter">🐦</a>
+      <a href="https://vk.com/your_ghostvpn" target="_blank" title="VK">.VK</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 GhostVPN. Все права защищены.</p>
+  </footer>
+
+</div>
 
 </body>
 </html>
