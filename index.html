@@ -128,10 +128,32 @@
       margin-bottom: 10px;
     }
 
-    .reviews blockquote {
-      margin: 10px 0;
-      padding-left: 15px;
-      border-left: 3px solid var(--accent-color);
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .feature-card {
+      padding: 20px;
+      border-radius: 10px;
+      background: #e8f0fe;
+      text-align: center;
+    }
+
+    .server-flags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .server-flags img {
+      width: 30px;
+      height: 20px;
+      border-radius: 3px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     .qr-code {
@@ -214,13 +236,25 @@
   <!-- Преимущества -->
   <section>
     <h2>Почему выбирают GhostVPN?</h2>
-    <ul>
-      <li>Шифрование данных 256-bit</li>
-      <li>Серверы по всему миру</li>
-      <li>Поддержка всех платформ: Windows, macOS, Android, iOS</li>
-      <li>Нет логов пользовательской активности</li>
-      <li>Бесплатный пробный период 7 дней</li>
-    </ul>
+    <div class="features">
+      <div class="feature-card">🔒 Шифрование данных</div>
+      <div class="feature-card">🌍 Серверы по всему миру</div>
+      <div class="feature-card">📱 iOS и Android</div>
+      <div class="feature-card">🕒 Бесплатный пробный период</div>
+    </div>
+  </section>
+
+  <!-- Серверы -->
+  <section>
+    <h2>Доступные страны</h2>
+    <p>Поддержка популярных направлений:</p>
+    <div class="server-flags">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Germany.svg"  title="Германия">
+      <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"  title="США">
+      <img src="https://upload.wikimedia.org/wikipedia/en/9/9d/Flag_of_South_Korea.svg"  title="Южная Корея">
+      <img src="https://upload.wikimedia.org/wikipedia/en/0/0d/Large_preview.png"  title="Япония (скоро)">
+      <span class="label new" style="color: green; font-weight: bold;">new</span>
+    </div>
   </section>
 
   <!-- Тарифы -->
@@ -241,19 +275,11 @@
         <p>9.99 $ / месяц</p>
         <ul style="list-style: none; padding: 0;">
           <li>Все страны</li>
-          <li>Безлимитный трафик</li>
+          <li>Безлимитная скорость</li>
         </ul>
         <a href="#" class="btn">Купить</a>
       </div>
     </div>
-  </section>
-
-  <!-- Отзывы -->
-  <section class="reviews">
-    <h2>Что говорят пользователи</h2>
-    <blockquote>«Отличный сервис, быстрая поддержка и удобное приложение.» — Максим</blockquote>
-    <blockquote>«Использую GhostVPN уже год. Очень доволен анонимностью.» — Анастасия</blockquote>
-    <blockquote>«Просто, быстро, безопасно. Рекомендую друзьям.» — Денис</blockquote>
   </section>
 
   <!-- Скачать -->
@@ -266,20 +292,18 @@
     </form>
 
     <div class="qr-code">
-      <h3>Сканируйте QR-код</h3>
+      <h3>Подключиться через Telegram</h3>
       <img src="https://quickchart.io/qr?text=https://t.me/ghostvpn_bot&size=200" alt="QR-код для Telegram-бота">
       <p><a href="https://t.me/ghostvpn_bot" target="_blank">👉 Перейти к боту</a></p>
     </div>
   </section>
 
-  <!-- Соцсети -->
-  <section>
-    <h2>Мы в социальных сетях</h2>
-    <div class="socials">
-      <a href="https://t.me/ghostvpn" target="_blank" title="Telegram">✈️</a>
-      <a href="https://instagram.com/ghostvpn" target="_blank" title="Instagram">📷</a>
-      <a href="https://twitter.com/ghostvpn" target="_blank" title="Twitter">🐦</a>
-    </div>
+  <!-- Отзывы -->
+  <section class="reviews">
+    <h2>Что говорят пользователи</h2>
+    <blockquote>«Не блокируется в России, всё работает без проблем» — Максим</blockquote>
+    <blockquote>«Telegram-подключение удобнее всего» — Анастасия</blockquote>
+    <blockquote>«Хорошая скорость, не тормозит в играх» — Денис</blockquote>
   </section>
 
   <!-- FAQ -->
@@ -290,13 +314,23 @@
       <p>Скачайте приложение, войдите через Telegram-бота.</p>
     </details>
     <details>
-      <summary>Подходит ли GhostVPN для торрентов?</summary>
-      <p>Да, мы не сохраняем логи активности и поддерживаем P2P-соединения.</p>
+      <summary>Подходит ли для торрентов?</summary>
+      <p>Да, GhostVPN не сохраняет логи активности.</p>
     </details>
     <details>
       <summary>Есть ли мобильное приложение?</summary>
-      <p>Да, GhostVPN доступен на Android и iOS.</p>
+      <p>Да, доступно для Android и iOS.</p>
     </details>
+  </section>
+
+  <!-- Соцсети -->
+  <section>
+    <h2>Мы в социальных сетях</h2>
+    <div class="socials">
+      <a href="https://t.me/ghostvpn" target="_blank" title="Telegram">✈️</a>
+      <a href="https://instagram.com/ghostvpn" target="_blank" title="Instagram">📷</a>
+      <a href="https://twitter.com/ghostvpn" target="_blank" title="Twitter">🐦</a>
+    </div>
   </section>
 
   <!-- Подвал -->
