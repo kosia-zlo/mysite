@@ -13,27 +13,39 @@
       --border-radius: 8px;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
       display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        flex-direction: row;
+      }
     }
 
     a {
-      text-decoration: none;
       color: var(--accent-color);
+      text-decoration: none;
     }
 
     .sidebar {
-      width: 250px;
+      width: 100%;
+      max-width: 250px;
       background-color: var(--sidebar-bg);
       color: white;
-      min-height: 100vh;
       padding: 1rem;
       position: sticky;
       top: 0;
+      height: fit-content;
     }
 
     .sidebar h2 {
@@ -55,6 +67,7 @@
     .sidebar a {
       color: var(--accent-color);
       font-weight: bold;
+      display: block;
     }
 
     .sidebar a:hover {
@@ -63,7 +76,26 @@
 
     .content {
       flex: 1;
-      padding: 2rem;
+      padding: 1rem 2rem;
+    }
+
+    header {
+      background: var(--text-color);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-radius: var(--border-radius);
+    }
+
+    nav {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: var(--accent-color);
+      font-weight: bold;
     }
 
     .card {
@@ -74,33 +106,23 @@
       margin-bottom: 1.5rem;
     }
 
-    header {
-      background: var(--text-color);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-
-    nav {
-      background: white;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      color: var(--accent-color);
-      font-weight: bold;
-    }
-
     footer {
       text-align: center;
-      padding: 2rem 1rem;
       font-size: 0.9rem;
       color: #6b7280;
-      border-top: 1px solid #e5e7eb;
       margin-top: 2rem;
+      padding: 2rem 1rem;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        padding: 1rem;
+      }
+
+      .sidebar {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -108,20 +130,24 @@
 
   <!-- Боковое меню -->
   <aside class="sidebar">
-    <h2>Wiki</h2>
-    <ul>
-      <li><a href="wiki/installation.html">Установка Privado</a></li>
-      <li><a href="wiki/compatibility.html">Совместимость</a></li>
-      <li><a href="#">Руководство пользователя</a></li>
-      <li><a href="#">FAQ (Wiki)</a></li>
-    </ul>
-
-    <h2>Другие разделы</h2>
+    <h2>Навигация</h2>
     <ul>
       <li><a href="index.html">Главная</a></li>
       <li><a href="about.html">О сервисе</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="support.html">Поддержка</a></li>
+    </ul>
+
+    <h2>Wiki</h2>
+    <ul>
+      <li><a href="wiki.html">Privado Wiki</a></li>
+      <li><a href="installation.html">Установка Privado</a></li>
+      <li><a href="compatibility.html">Совместимость</a></li>
+    </ul>
+
+    <h2>Telegram</h2>
+    <ul>
+      <li><a href="https://t.me/ghostvpn_bot " target="_blank">@ghostvpn_bot</a></li>
     </ul>
   </aside>
 
@@ -134,8 +160,9 @@
 
     <nav>
       <a href="index.html">Главная</a> |
-      <a href="wiki/installation.html">Установка</a> |
-      <a href="wiki/compatibility.html">Совместимость</a>
+      <a href="wiki.html">Wiki</a> |
+      <a href="installation.html">Установка</a> |
+      <a href="compatibility.html">Совместимость</a>
     </nav>
 
     <main>
@@ -147,10 +174,9 @@
       <div class="card">
         <h3>Популярные статьи</h3>
         <ul>
-          <li><a href="wiki/installation.html">Как установить Privado</a></li>
-          <li><a href="wiki/compatibility.html">Список поддерживаемых устройств</a></li>
+          <li><a href="installation.html">Как установить Privado</a></li>
+          <li><a href="compatibility.html">Список поддерживаемых устройств</a></li>
           <li><a href="#">Как подключиться через Telegram</a></li>
-          <li><a href="#">Часто задаваемые вопросы (FAQ)</a></li>
         </ul>
       </div>
     </main>
