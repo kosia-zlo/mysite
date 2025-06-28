@@ -54,20 +54,12 @@
 
     header h1 {
       font-size: 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    header h1 img {
-      height: 40px;
-      vertical-align: middle;
+      margin-bottom: 10px;
     }
 
     header p {
       font-size: 1.2rem;
-      margin: 20px 0;
+      margin-bottom: 20px;
     }
 
     .theme-toggle {
@@ -142,54 +134,10 @@
       text-align: center;
     }
 
-    .server-flags {
+    .server-list {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 10px;
-    }
-
-    .server-flags img {
-      width: 30px;
-      height: 20px;
-      border-radius: 3px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .qr-code {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .qr-code img {
-      max-width: 200px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .socials a {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      background-color: var(--accent-color);
-      color: white;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 40px;
-      text-decoration: none;
-      font-size: 20px;
-      transition: background 0.3s ease;
-    }
-
-    .socials a:hover {
-      background-color: #3b5998;
     }
 
     details {
@@ -214,7 +162,6 @@
     @media (max-width: 600px) {
       header h1 {
         font-size: 2rem;
-        flex-direction: column;
       }
     }
   </style>
@@ -226,11 +173,9 @@
   <!-- Hero -->
   <header class="hero">
     <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-    <h1>
-      <img src="https://quickchart.io/placeholder?text=🛡️&width=40&height=40" alt="Логотип GhostVPN"> GhostVPN
-    </h1>
+    <h1>GhostVPN</h1>
     <p>Быстро. Безопасно. Анонимно.</p>
-    <a href="#download" class="btn">Скачать приложение</a> 
+    <a href="#download" class="btn">Скачать приложение</a>
   </header>
 
   <!-- Преимущества -->
@@ -248,12 +193,8 @@
   <section>
     <h2>Доступные страны</h2>
     <p>Поддержка популярных направлений:</p>
-    <div class="server-flags">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Germany.svg"  title="Германия">
-      <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"  title="США">
-      <img src="https://upload.wikimedia.org/wikipedia/en/9/9d/Flag_of_South_Korea.svg"  title="Южная Корея">
-      <img src="https://upload.wikimedia.org/wikipedia/en/0/0d/Large_preview.png"  title="Япония (скоро)">
-      <span class="label new" style="color: green; font-weight: bold;">new</span>
+    <div class="server-list">
+      <span>Германия</span>, <span>США</span>, <span>Южная Корея</span>, <span>Япония (скоро)</span>
     </div>
   </section>
 
@@ -284,17 +225,12 @@
 
   <!-- Скачать -->
   <section id="download">
-    <h2>Попробуйте бесплатно</h2>
-    <p>Введите свой email, чтобы получить ссылку для скачивания:</p>
-    <form>
-      <input type="email" placeholder="Ваш email" required style="width: 100%; padding: 10px; margin-bottom: 10px;">
-      <button type="submit" style="padding: 10px 20px; width: 100%;">Получить доступ</button>
-    </form>
-
+    <h2>Скачать GhostVPN</h2>
+    <p>GhostVPN доступен на всех платформах: Windows, macOS, Android, iOS</p>
     <div class="qr-code">
       <h3>Подключиться через Telegram</h3>
       <img src="https://quickchart.io/qr?text=https://t.me/ghostvpn_bot&size=200" alt="QR-код для Telegram-бота">
-      <p><a href="https://t.me/ghostvpn_bot" target="_blank">👉 Перейти к боту</a></p>
+      <p><a href=" https://t.me/ghostvpn_bot " target="_blank">👉 Перейти к боту</a></p>
     </div>
   </section>
 
@@ -315,22 +251,12 @@
     </details>
     <details>
       <summary>Подходит ли для торрентов?</summary>
-      <p>Да, GhostVPN не сохраняет логи активности.</p>
+      <p>Да, мы не сохраняем логи активности.</p>
     </details>
     <details>
       <summary>Есть ли мобильное приложение?</summary>
-      <p>Да, доступно для Android и iOS.</p>
+      <p>Да, GhostVPN доступен на Android и iOS.</p>
     </details>
-  </section>
-
-  <!-- Соцсети -->
-  <section>
-    <h2>Мы в социальных сетях</h2>
-    <div class="socials">
-      <a href="https://t.me/ghostvpn" target="_blank" title="Telegram">✈️</a>
-      <a href="https://instagram.com/ghostvpn" target="_blank" title="Instagram">📷</a>
-      <a href="https://twitter.com/ghostvpn" target="_blank" title="Twitter">🐦</a>
-    </div>
   </section>
 
   <!-- Подвал -->
