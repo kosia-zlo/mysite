@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Privado — Wiki</title>
+  <style>
+    :root {
+      --bg-color: #f3f4f6;
+      --text-color: #111827;
+      --accent-color: #d1fae5;
+      --sidebar-bg: #1f2937;
+      --card-bg: white;
+      --border-radius: 8px;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--accent-color);
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: var(--sidebar-bg);
+      color: white;
+      min-height: 100vh;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #374151;
+      padding-bottom: 0.5rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 0.75rem;
+    }
+
+    .sidebar a {
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1.5rem;
+    }
+
+    header {
+      background: var(--text-color);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Боковое меню -->
+  <aside class="sidebar">
+    <h2>Wiki</h2>
+    <ul>
+      <li><a href="wiki/installation.html">Установка Privado</a></li>
+      <li><a href="wiki/compatibility.html">Совместимость</a></li>
+      <li><a href="#">Руководство пользователя</a></li>
+      <li><a href="#">FAQ (Wiki)</a></li>
+    </ul>
+
+    <h2>Другие разделы</h2>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="about.html">О сервисе</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="support.html">Поддержка</a></li>
+    </ul>
+  </aside>
+
+  <!-- Основной контент -->
+  <div class="content">
+    <header>
+      <h1>Privado Wiki</h1>
+      <p>Инструкции, руководства, советы</p>
+    </header>
+
+    <nav>
+      <a href="index.html">Главная</a> |
+      <a href="wiki/installation.html">Установка</a> |
+      <a href="wiki/compatibility.html">Совместимость</a>
+    </nav>
+
+    <main>
+      <div class="card">
+        <h2>Добро пожаловать в Privado Wiki</h2>
+        <p>Здесь вы найдете подробные инструкции, рекомендации и ответы на часто задаваемые вопросы.</p>
+      </div>
+
+      <div class="card">
+        <h3>Популярные статьи</h3>
+        <ul>
+          <li><a href="wiki/installation.html">Как установить Privado</a></li>
+          <li><a href="wiki/compatibility.html">Список поддерживаемых устройств</a></li>
+          <li><a href="#">Как подключиться через Telegram</a></li>
+          <li><a href="#">Часто задаваемые вопросы (FAQ)</a></li>
+        </ul>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Privado. Все права защищены.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
