@@ -50,4 +50,140 @@
     }
 
     .sidebar h2 {
-      font-size: 1
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #374151;
+      padding-bottom: 0.5rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 0.75rem;
+    }
+
+    .sidebar a {
+      color: var(--accent-color);
+      font-weight: bold;
+      display: block;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      flex: 1;
+      padding: 1rem 2rem;
+    }
+
+    header {
+      background: var(--text-color);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-radius: var(--border-radius);
+    }
+
+    nav {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-top: 2rem;
+      padding: 2rem 1rem;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        padding: 1rem;
+      }
+
+      .sidebar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Боковое меню -->
+  <aside class="sidebar">
+    <h2>Навигация</h2>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="about.html">О сервисе</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="support.html">Поддержка</a></li>
+    </ul>
+
+    <h2>Wiki</h2>
+    <ul>
+      <li><a href="wiki.html">Privado Wiki</a></li>
+      <li><a href="installation.html">Установка Privado</a></li>
+      <li><a href="compatibility.html">Совместимость</a></li>
+    </ul>
+
+    <h2>Telegram</h2>
+    <ul>
+      <li><a href="https://t.me/ghostvpn_bot " target="_blank">@ghostvpn_bot</a></li>
+    </ul>
+  </aside>
+
+  <!-- Основной контент -->
+  <div class="content">
+    <header>
+      <h1>Privado</h1>
+      <p>Вопросы и ответы</p>
+    </header>
+
+    <nav>
+      <a href="index.html">Главная</a> |
+      <a href="about.html">О сервисе</a> |
+      <a href="faq.html">FAQ</a> |
+      <a href="wiki.html">Wiki</a>
+    </nav>
+
+    <main>
+      <div class="card">
+        <h2>Часто задаваемые вопросы</h2>
+        <h3>1. Как подключиться?</h3>
+        <p>Инструкции будут доступны позже.</p>
+
+        <h3>2. Подходит ли для торрентов?</h3>
+        <p>Да, мы не сохраняем логи активности.</p>
+
+        <h3>3. Есть ли мобильное приложение?</h3>
+        <p>Да, Privado доступен на Android и iOS.</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Privado. Все права защищены.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
