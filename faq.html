@@ -3,12 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <title>FAQ — Часто задаваемые вопросы</title>
+  <style>
+    :root {
+      --bg-color: #f3f4f6;
+      --text-color: #111827;
+      --accent-color: #d1fae5;
+      --header-bg: #111827;
+      --card-bg: white;
+      --border-radius: 8px;
+      --padding: 1rem;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--header-bg);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+      justify-content: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--accent-color);
+      font-weight: bold;
+      background: var(--accent-color);
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: var(--border-radius);
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover {
+      background: #a7f3d0;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    h1, h2, h3 {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      padding-left: 1.5em;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1.5rem;
+      border-left: 5px solid var(--accent-color);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
 
-  <h1>Privado</h1>
-  <p>Часто задаваемые вопросы</p>
+  <!-- Шапка -->
+  <header>
+    <h1>Privado</h1>
+    <p>Часто задаваемые вопросы</p>
+  </header>
 
+  <!-- Навигация -->
   <nav>
     <ul>
       <li><a href="index.html">Главная</a></li>
@@ -18,19 +111,25 @@
     </ul>
   </nav>
 
-  <main>
-    <h2>Часто задаваемые вопросы</h2>
+  <!-- Контент -->
+  <main class="container">
+    <div class="card">
+      <h2>Часто задаваемые вопросы</h2>
+      <h3>1. Как подключиться?</h3>
+      <p>Инструкции будут доступны позже.</p>
 
-    <h3>1. Как подключиться?</h3>
-    <p>Инструкции будут доступны позже.</p>
+      <h3>2. Подходит ли для торрентов?</h3>
+      <p>Да, мы не сохраняем логи активности.</p>
 
-    <h3>2. Подходит ли для торрентов?</h3>
-    <p>Да, мы не сохраняем логи активности.</p>
+      <h3>3. Есть ли мобильное приложение?</h3>
+      <p>Да, Privado доступен на Android и iOS.</p>
 
-    <h3>3. Есть ли мобильное приложение?</h3>
-    <p>Да, Privado доступен на Android и iOS.</p>
+      <h3>4. Можно ли использовать на роутере?</h3>
+      <p>Да, поддерживаются прошивки для роутеров. Подробнее в разделе "О сервисе".</p>
+    </div>
   </main>
 
+  <!-- Подвал -->
   <footer>
     <p>&copy; 2025 Privado. Все права защищены.</p>
   </footer>
