@@ -3,7 +3,7 @@ const pages = {
   "/": `
     <h1>Privado</h1>
     <p>Быстро. Безопасно. Анонимно.</p>
-    <p><a href="/download" data-link>Попробовать через Telegram</a></p>
+    <p><a href="#download">Попробовать через Telegram</a></p>
   `,
   "/features": `
     <h2>Почему выбирают Privado?</h2>
@@ -38,7 +38,7 @@ const pages = {
     <h2>Подключитесь к Privado</h2>
     <p>Privado доступен на всех платформах: Windows, macOS, Android, iOS</p>
     <h3>Подключиться через Telegram</h3>
-    <img src="https://quickchart.io/qr?text=https://t.me/ghostvpn_bot&size=200" alt="QR-код для Telegram">
+    <img src="https://quickchart.io/qr?text=https://t.me/ghostvpn_bot&size=200" alt="QR-код для подключения к Privado через Telegram">
     <p><a href=" https://t.me/ghostvpn_bot " target="_blank">👉 Перейти к боту</a></p>
   `
 };
