@@ -3,12 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <title>О Privado</title>
+  <style>
+    :root {
+      --bg-color: #f9fafb;
+      --text-color: #111827;
+      --accent-color: #6d28d0;
+      --card-bg: white;
+      --border-radius: 8px;
+      --padding: 1rem;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--accent-color);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    h1, h2, h3 {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      padding-left: 1.5em;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
 
-  <h1>Privado</h1>
-  <p>Информация о сервисе</p>
+  <!-- Шапка -->
+  <header>
+    <h1>Privado</h1>
+    <p>Информация о сервисе</p>
+  </header>
 
+  <!-- Навигация -->
   <nav>
     <ul>
       <li><a href="index.html">Главная</a></li>
@@ -18,22 +103,26 @@
     </ul>
   </nav>
 
-  <main>
-    <h2>Что такое Privado?</h2>
-    <p>Privado — это безопасное решение для анонимного выхода в интернет через Telegram. Мы используем современное шифрование и децентрализованную систему подключения, чтобы защитить вашу приватность.</p>
+  <!-- Контент -->
+  <main class="container">
+    <div class="card">
+      <h2>Что такое Privado?</h2>
+      <p>Privado — это безопасное решение для анонимного выхода в интернет через Telegram. Мы используем современное шифрование и децентрализованную систему подключения, чтобы защитить вашу приватность.</p>
 
-    <h3>Как это работает?</h3>
-    <p>Вы запускаете Telegram-бота, получаете конфигурацию и подключаетесь через приложение OpenVPN или WireGuard.</p>
+      <h3>Как это работает?</h3>
+      <p>Вы запускаете Telegram-бота, получаете конфигурацию и подключаетесь через OpenVPN или WireGuard.</p>
 
-    <h3>Кому подойдёт?</h3>
-    <ul>
-      <li>Журналистам</li>
-      <li>Торговцам криптовалютой</li>
-      <li>Разработчикам</li>
-      <li>Обычным пользователям</li>
-    </ul>
+      <h3>Кому подойдёт?</h3>
+      <ul>
+        <li>Журналистам</li>
+        <li>Торговцам криптовалютой</li>
+        <li>Разработчикам</li>
+        <li>Обычным пользователям</li>
+      </ul>
+    </div>
   </main>
 
+  <!-- Подвал -->
   <footer>
     <p>&copy; 2025 Privado. Все права защищены.</p>
   </footer>
