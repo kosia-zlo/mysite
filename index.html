@@ -3,14 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <title>Privado — Защити своё онлайн-пространство</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
     :root {
-      --bg-color: #f9fafb;
+      --bg-color: #f3f4f6;
       --text-color: #111827;
-      --accent-color: #6d28d0; /* Фиолетовый */
+      --accent-color: #d1fae5; /* кислотный зеленоватый */
+      --sidebar-bg: #1f2937;
       --card-bg: white;
       --border-radius: 8px;
       --padding: 1rem;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -18,62 +24,80 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
-      line-height: 1.6;
-    }
-
-    header {
-      background: var(--accent-color);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-
-    nav {
-      background: white;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 1rem;
-    }
-
-    nav ul {
-      list-style: none;
       display: flex;
-      gap: 1rem;
-      padding: 0;
-      margin: 0;
+      flex-direction: column;
     }
 
-    nav a {
+    @media (min-width: 768px) {
+      body {
+        flex-direction: row;
+      }
+    }
+
+    a {
+      color: var(--accent-color);
       text-decoration: none;
+    }
+
+    .sidebar {
+      width: 100%;
+      max-width: 250px;
+      background-color: var(--sidebar-bg);
+      color: white;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      height: fit-content;
+    }
+
+    .sidebar h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #374151;
+      padding-bottom: 0.5rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 0.75rem;
+    }
+
+    .sidebar a {
       color: var(--accent-color);
       font-weight: bold;
+      display: block;
     }
 
-    nav a:hover {
+    .sidebar a:hover {
       text-decoration: underline;
     }
 
-    main {
-      max-width: 800px;
-      margin: auto;
+    .content {
+      flex: 1;
+      padding: 1rem 2rem;
+    }
+
+    header {
+      background: var(--text-color);
+      color: white;
       padding: 2rem 1rem;
-    }
-
-    h1, h2, h3 {
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    ul {
-      padding-left: 1.5em;
-    }
-
-    footer {
       text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #6b7280;
-      border-top: 1px solid #e5e7eb;
-      margin-top: 2rem;
+      border-radius: var(--border-radius);
+    }
+
+    nav {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: var(--accent-color);
+      font-weight: bold;
     }
 
     .card {
@@ -83,56 +107,92 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
       margin-bottom: 1.5rem;
     }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-top: 2rem;
+      padding: 2rem 1rem;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        padding: 1rem;
+      }
+
+      .sidebar {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Шапка -->
-  <header>
-    <h1>Privado</h1>
-    <p>Быстро. Безопасно. Анонимно.</p>
-  </header>
-
-  <!-- Навигация -->
-  <nav>
+  <!-- Боковое меню -->
+  <aside class="sidebar">
+    <h2>Навигация</h2>
     <ul>
       <li><a href="index.html">Главная</a></li>
       <li><a href="about.html">О сервисе</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="support.html">Поддержка</a></li>
     </ul>
-  </nav>
+
+    <h2>Wiki</h2>
+    <ul>
+      <li><a href="wiki.html">Privado Wiki</a></li>
+      <li><a href="wiki/installation.html">Установка Privado</a></li>
+      <li><a href="wiki/compatibility.html">Совместимость</a></li>
+    </ul>
+
+    <h2>Telegram</h2>
+    <ul>
+      <li><a href="https://t.me/ghostvpn_bot " target="_blank">@ghostvpn_bot</a></li>
+    </ul>
+  </aside>
 
   <!-- Основной контент -->
-  <main class="container">
-    <div class="card">
-      <h2>Добро пожаловать в Privado</h2>
-      <p>Privado — это защищённое соединение через Telegram, без сложных настроек. Мы не сохраняем логи, не отслеживаем активность, обеспечиваем шифрование и анонимность.</p>
+  <div class="content">
+    <header>
+      <h1>Privado</h1>
+      <p>Быстро. Безопасно. Анонимно.</p>
+    </header>
 
-      <h3>Почему Privado?</h3>
-      <ul>
-        <li>Шифрование данных</li>
-        <li>Серверы по всему миру</li>
-        <li>Поддержка мобильных устройств</li>
-        <li>Простое подключение через Telegram</li>
-      </ul>
-    </div>
+    <nav>
+      <a href="index.html">Главная</a> |
+      <a href="about.html">О сервисе</a> |
+      <a href="faq.html">FAQ</a> |
+      <a href="wiki.html">Wiki</a>
+    </nav>
 
-    <div class="card">
-      <h3>Обратите внимание</h3>
-      <ul>
-        <li>Прошивки не предназначены для использования на указанных роутерах в качестве основного решения.</li>
-        <li>Не используйте оригинальные файлы обновлений прошивки — это приведёт к неработоспособности устройства.</li>
-        <li>Не обращайтесь в официальную поддержку Keenetic по вопросам портированных прошивок.</li>
-        <li>Вы берёте на себя всю ответственность и риски, связанные с самостоятельной прошивкой устройства.</li>
-      </ul>
-    </div>
-  </main>
+    <main>
+      <div class="card">
+        <h2>Добро пожаловать в Privado</h2>
+        <p>Privado — это защищённое соединение через Telegram, без сложных настроек. Мы не сохраняем логи, не отслеживаем активность, обеспечиваем шифрование и анонимность.</p>
+      </div>
 
-  <!-- Подвал -->
-  <footer>
-    <p>&copy; 2025 Privado. Все права защищены.</p>
-  </footer>
+      <div class="card">
+        <h3>Почему Privado?</h3>
+        <ul>
+          <li>Шифрование данных</li>
+          <li>Серверы по всему миру</li>
+          <li>Поддержка мобильных устройств</li>
+          <li>Простое подключение через Telegram</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Telegram-бот</h3>
+        <p>Если у вас установлен Telegram, вы можете запустить бота <a href="https://t.me/ghostvpn_bot " target="_blank">@ghostvpn_bot</a>, чтобы начать использовать Privado прямо сейчас.</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Privado. Все права защищены.</p>
+    </footer>
+  </div>
 
 </body>
 </html>
