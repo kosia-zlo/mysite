@@ -3,12 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <title>Privado — Защити своё онлайн-пространство</title>
+  <style>
+    :root {
+      --bg-color: #f9fafb;
+      --text-color: #111827;
+      --accent-color: #6d28d0; /* Фиолетовый */
+      --card-bg: white;
+      --border-radius: 8px;
+      --padding: 1rem;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--accent-color);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    h1, h2, h3 {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      padding-left: 1.5em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1.5rem;
+    }
+  </style>
 </head>
 <body>
 
-  <h1>Privado</h1>
-  <p>Быстро. Безопасно. Анонимно.</p>
+  <!-- Шапка -->
+  <header>
+    <h1>Privado</h1>
+    <p>Быстро. Безопасно. Анонимно.</p>
+  </header>
 
+  <!-- Навигация -->
   <nav>
     <ul>
       <li><a href="index.html">Главная</a></li>
@@ -18,19 +103,33 @@
     </ul>
   </nav>
 
-  <main>
-    <h2>Добро пожаловать в Privado</h2>
-    <p>Privado — это защищённое соединение через Telegram, без сложных настроек. Мы не сохраняем логи, не отслеживаем активность, обеспечиваем шифрование и анонимность.</p>
+  <!-- Основной контент -->
+  <main class="container">
+    <div class="card">
+      <h2>Добро пожаловать в Privado</h2>
+      <p>Privado — это защищённое соединение через Telegram, без сложных настроек. Мы не сохраняем логи, не отслеживаем активность, обеспечиваем шифрование и анонимность.</p>
 
-    <h3>Почему Privado?</h3>
-    <ul>
-      <li>Шифрование данных</li>
-      <li>Серверы по всему миру</li>
-      <li>Поддержка мобильных устройств</li>
-      <li>Простое подключение через Telegram</li>
-    </ul>
+      <h3>Почему Privado?</h3>
+      <ul>
+        <li>Шифрование данных</li>
+        <li>Серверы по всему миру</li>
+        <li>Поддержка мобильных устройств</li>
+        <li>Простое подключение через Telegram</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Обратите внимание</h3>
+      <ul>
+        <li>Прошивки не предназначены для использования на указанных роутерах в качестве основного решения.</li>
+        <li>Не используйте оригинальные файлы обновлений прошивки — это приведёт к неработоспособности устройства.</li>
+        <li>Не обращайтесь в официальную поддержку Keenetic по вопросам портированных прошивок.</li>
+        <li>Вы берёте на себя всю ответственность и риски, связанные с самостоятельной прошивкой устройства.</li>
+      </ul>
+    </div>
   </main>
 
+  <!-- Подвал -->
   <footer>
     <p>&copy; 2025 Privado. Все права защищены.</p>
   </footer>
