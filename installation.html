@@ -3,8 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <title>Установка Privado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
-    /* Стили можно скопировать из wiki.html или index.html */
+    :root {
+      --bg-color: #f3f4f6;
+      --text-color: #111827;
+      --accent-color: #d1fae5; /* кислотный зеленоватый */
+      --sidebar-bg: #1f2937;
+      --card-bg: white;
+      --border-radius: 8px;
+      --padding: 1rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        flex-direction: row;
+      }
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .sidebar {
+      width: 100%;
+      max-width: 250px;
+      background-color: var(--sidebar-bg);
+      color: white;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      height: fit-content;
+    }
+
+    .sidebar h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #374151;
+      padding-bottom: 0.5rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 0.75rem;
+    }
+
+    .sidebar a {
+      color: var(--accent-color);
+      font-weight: bold;
+      display: block;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      flex: 1;
+      padding: 1rem 2rem;
+    }
+
+    header {
+      background: var(--text-color);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-radius: var(--border-radius);
+    }
+
+    nav {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-top: 2rem;
+      padding: 2rem 1rem;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        padding: 1rem;
+      }
+
+      .sidebar {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -25,11 +146,6 @@
       <li><a href="installation.html">Установка Privado</a></li>
       <li><a href="compatibility.html">Совместимость</a></li>
     </ul>
-
-    <h2>Telegram</h2>
-    <ul>
-      <li><a href="https://t.me/ghostvpn_bot " target="_blank">@ghostvpn_bot</a></li>
-    </ul>
   </aside>
 
   <!-- Основной контент -->
@@ -49,10 +165,22 @@
     <main>
       <div class="card">
         <h2>Как установить Privado</h2>
-        <p>1. Запустите Telegram-бота <a href="https://t.me/ghostvpn_bot " target="_blank">@ghostvpn_bot</a></p>
-        <p>2. Следуйте инструкциям для получения конфигурации</p>
-        <p>3. Установите OpenVPN или WireGuard на ваше устройство</p>
-        <p>4. Импортируйте полученный файл и подключитесь</p>
+        <p>Для использования Privado вам понадобится:</p>
+        <ul>
+          <li>Совместимое устройство</li>
+          <li>Приложение OpenVPN или WireGuard</li>
+          <li>Файл конфигурации</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Пошаговая инструкция</h3>
+        <ol>
+          <li>Загрузите и установите клиент OpenVPN или WireGuard на ваше устройство.</li>
+          <li>Получите файл конфигурации.</li>
+          <li>Импортируйте его в клиент.</li>
+          <li>Запустите подключение.</li>
+        </ol>
       </div>
 
       <div class="card">
