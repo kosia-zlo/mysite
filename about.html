@@ -1,198 +1,189 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <title>О Privado</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <style>
-    :root {
-      --bg-color: #f3f4f6;
-      --text-color: #111827;
-      --accent-color: #d1fae5; /* кислотный зеленоватый */
-      --sidebar-bg: #1f2937;
-      --card-bg: white;
-      --border-radius: 8px;
-      --padding: 1rem;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О сервисе Privado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        /* --- Стили скопированы из index.html для единообразия --- */
+        :root {
+            --primary-color: #007BFF;
+            --primary-hover-color: #0056b3;
+            --dark-bg: #12121c;
+            --light-bg: #1a1a2e;
+            --text-color: #e0e0e0;
+            --secondary-text-color: #a0a0b0;
+            --border-color: #2a2a40;
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      display: flex;
-      flex-direction: column;
-    }
+        .container {
+            max-width: 900px; /* Немного уже для текстовых страниц */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    @media (min-width: 768px) {
-      body {
-        flex-direction: row;
-      }
-    }
+        /* --- Шапка --- */
+        .header {
+            background-color: var(--dark-bg);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo i { margin-right: 10px; }
 
-    .sidebar {
-      width: 100%;
-      max-width: 250px;
-      background-color: var(--sidebar-bg);
-      color: white;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      height: fit-content;
-    }
+        .main-nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
 
-    .sidebar h2 {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid #374151;
-      padding-bottom: 0.5rem;
-    }
+        .main-nav li { margin-left: 25px; }
 
-    .sidebar ul {
-      list-style: none;
-      padding-left: 0;
-    }
+        .main-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-    .sidebar li {
-      margin-bottom: 0.75rem;
-    }
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--primary-color);
+        }
 
-    .sidebar a {
-      color: var(--accent-color);
-      font-weight: bold;
-      display: block;
-    }
+        /* --- Заголовок внутренней страницы --- */
+        .page-header {
+            text-align: center;
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
 
-    .sidebar a:hover {
-      text-decoration: underline;
-    }
+        .page-header h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #fff;
+        }
 
-    .content {
-      flex: 1;
-      padding: 1rem 2rem;
-    }
+        /* --- Карточки с контентом --- */
+        .card {
+            background-color: var(--light-bg);
+            padding: 25px 30px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
+        }
 
-    header {
-      background: var(--text-color);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-      border-radius: var(--border-radius);
-    }
+        .card h2 {
+            margin-top: 0;
+            color: #fff;
+            font-size: 1.8em;
+        }
+        
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.4em;
+        }
 
-    nav {
-      text-align: center;
-      margin: 1rem 0;
-    }
+        .card ul {
+            padding-left: 20px;
+            list-style: disc;
+        }
+        
+        .card ul li {
+            margin-bottom: 10px;
+        }
 
-    nav a {
-      margin: 0 1rem;
-      color: var(--accent-color);
-      font-weight: bold;
-    }
+        /* --- Подвал --- */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color);
+            color: var(--secondary-text-color);
+        }
 
-    .card {
-      background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: var(--border-radius);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      margin-bottom: 1.5rem;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #6b7280;
-      margin-top: 2rem;
-      padding: 2rem 1rem;
-      border-top: 1px solid #e5e7eb;
-    }
-
-    @media (max-width: 768px) {
-      .content {
-        padding: 1rem;
-      }
-
-      .sidebar {
-        display: none;
-      }
-    }
-  </style>
+        /* --- Адаптивность --- */
+        @media (max-width: 768px) {
+            .header .container { flex-direction: column; }
+            .main-nav { margin-top: 20px; }
+            .page-header h1 { font-size: 2.2em; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Боковое меню -->
-  <aside class="sidebar">
-    <h2>Навигация</h2>
-    <ul>
-      <li><a href="index.html">Главная</a></li>
-      <li><a href="about.html">О сервисе</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="support.html">Поддержка</a></li>
-    </ul>
-
-    <h2>Wiki</h2>
-    <ul>
-      <li><a href="wiki.html">Privado Wiki</a></li>
-      <li><a href="installation.html">Установка Privado</a></li>
-      <li><a href="compatibility.html">Совместимость</a></li>
-    </ul>
-
-    <h2>Telegram</h2>
-    <ul>
-      <li><a href="https://t.me/ghostvpn_bot " target="_blank">@ghostvpn_bot</a></li>
-    </ul>
-  </aside>
-
-  <!-- Основной контент -->
-  <div class="content">
-    <header>
-      <h1>Privado</h1>
-      <p>Информация о сервисе</p>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo"><i class="fas fa-shield-alt"></i>Privado</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html" class="active">О сервисе</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="support.html">Поддержка</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <nav>
-      <a href="index.html">Главная</a> |
-      <a href="about.html">О сервисе</a> |
-      <a href="faq.html">FAQ</a> |
-      <a href="wiki.html">Wiki</a>
-    </nav>
-
     <main>
-      <div class="card">
-        <h2>Что такое Privado?</h2>
-        <p>Privado — это безопасное решение для анонимного выхода в интернет через Telegram. Мы используем современное шифрование и децентрализованную систему подключения, чтобы защитить вашу приватность.</p>
-      </div>
+        <div class="container">
+            <div class="page-header">
+                <h1>О нашем сервисе</h1>
+            </div>
 
-      <div class="card">
-        <h3>Как это работает?</h3>
-        <p>Вы запускаете Telegram-бота, получаете конфигурацию и подключаетесь через OpenVPN или WireGuard.</p>
-      </div>
+            <div class="card">
+                <h2>Что такое Privado?</h2>
+                <p>Privado — это безопасное решение для анонимного выхода в интернет через Telegram. Мы используем современное шифрование и удобную систему подключения, чтобы защитить вашу приватность и дать свободу в сети.</p>
+            </div>
 
-      <div class="card">
-        <h3>Кому подойдёт?</h3>
-        <ul>
-          <li>Журналистам</li>
-          <li>Торговцам криптовалютой</li>
-          <li>Разработчикам</li>
-          <li>Обычным пользователям</li>
-        </ul>
-      </div>
+            <div class="card">
+                <h3>Как это работает?</h3>
+                <p>Все просто: вы запускаете нашего Telegram-бота, выбираете подходящий сервер, получаете файл конфигурации и подключаетесь через популярные VPN-клиенты, такие как OpenVPN или WireGuard. Никаких сложных регистраций и установки лишних приложений.</p>
+            </div>
+
+            <div class="card">
+                <h3>Кому подойдёт Privado?</h3>
+                <p>Наш сервис создан для широкого круга пользователей, ценящих свою безопасность и свободу в интернете:</p>
+                <ul>
+                    <li><b>Обычным пользователям</b> для защиты данных в общественном Wi-Fi и обхода блокировок.</li>
+                    <li><b>Журналистам и активистам</b> для безопасной коммуникации и доступа к информации.</li>
+                    <li><b>Разработчикам</b> для тестирования продуктов под разными IP-адресами.</li>
+                    <li><b>Трейдерам</b> для безопасного доступа к криптовалютным биржам.</li>
+                </ul>
+            </div>
+        </div>
     </main>
 
-    <footer>
-      <p>&copy; 2025 Privado. Все права защищены.</p>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Privado. Все права защищены.</p>
+        </div>
     </footer>
-  </div>
 
 </body>
 </html>
