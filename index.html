@@ -31,6 +31,13 @@
             padding: 0 20px;
         }
 
+        h2.section-title {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 60px;
+            color: #fff;
+        }
+
         /* --- Шапка --- */
         .header {
             background-color: var(--dark-bg);
@@ -51,6 +58,7 @@
             font-size: 1.8em;
             font-weight: bold;
             color: var(--primary-color);
+            text-decoration: none;
         }
         
         .logo i {
@@ -123,12 +131,6 @@
             padding: 80px 0;
             background-color: var(--light-bg);
         }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 60px;
-        }
         
         .features-grid {
             display: grid;
@@ -166,6 +168,214 @@
             color: var(--secondary-text-color);
             margin: 0;
         }
+        
+        /* --- Секция "Как это работает" --- */
+        .how-it-works {
+            padding: 80px 0;
+            background-color: var(--dark-bg);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .step-card {
+            position: relative;
+            padding: 30px;
+            padding-top: 50px;
+            background-color: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .step-card .step-number {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            border: 3px solid var(--dark-bg);
+        }
+
+        .step-card h3 {
+            font-size: 1.4em;
+            color: #fff;
+            margin: 0 0 10px;
+        }
+
+        /* --- Секция с тарифами --- */
+        .pricing {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .pricing-plan {
+            background-color: var(--dark-bg);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-plan:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-plan.recommended {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .pricing-plan .badge {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--primary-color);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .pricing-plan h3 {
+            font-size: 1.5em;
+            color: #fff;
+        }
+
+        .pricing-plan .price {
+            font-size: 3em;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 15px 0;
+        }
+        .pricing-plan .price span {
+            font-size: 0.5em;
+            vertical-align: super;
+        }
+        .pricing-plan .price small {
+            font-size: 0.4em;
+            color: var(--secondary-text-color);
+            font-weight: normal;
+        }
+
+        .pricing-plan ul {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+            text-align: left;
+        }
+        .pricing-plan ul li {
+            margin-bottom: 15px;
+        }
+        .pricing-plan ul li i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        .pricing-plan ul li i.fa-times {
+            color: #777;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 15px 35px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        /* --- Секция с отзывами --- */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--dark-bg);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .testimonial-card blockquote {
+            margin: 0;
+            font-style: italic;
+            font-size: 1.1em;
+            color: var(--text-color);
+        }
+
+        .testimonial-card cite {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #fff;
+            font-style: normal;
+        }
+        
+        /* --- Секция с финальным призывом --- */
+        .final-cta {
+            background-color: var(--primary-color);
+            padding: 60px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5em;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .final-cta p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        .final-cta .cta-button {
+            background-color: #fff;
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        .final-cta .cta-button:hover {
+            background-color: #eee;
+        }
 
         /* --- Подвал --- */
         .footer {
@@ -177,6 +387,9 @@
         
         /* --- Адаптивность --- */
         @media (max-width: 768px) {
+            h2.section-title {
+                font-size: 2.2em;
+            }
             .header .container {
                 flex-direction: column;
             }
@@ -188,6 +401,12 @@
             }
             .hero .subtitle {
                 font-size: 1.2em;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            .pricing-plan.recommended {
+                transform: scale(1); /* Убираем увеличение на мобильных */
             }
         }
 
@@ -245,6 +464,85 @@
                 </div>
             </div>
         </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                <h2 class="section-title">Начать за 3 простых шага</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Запустите бота</h3>
+                        <p>Откройте Telegram и запустите нашего бота, чтобы получить доступ к панели управления.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Получите ключ</h3>
+                        <p>Выберите сервер в нужной стране и получите уникальный ключ-конфигурацию для подключения.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Подключитесь</h3>
+                        <p>Импортируйте ключ в ваш VPN-клиент (OpenVPN, WireGuard) и наслаждайтесь свободой!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing">
+            <div class="container">
+                <h2 class="section-title">Выберите свой тариф</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-plan">
+                        <h3>Бесплатный</h3>
+                        <div class="price"><span>₽</span>0 <small>/ мес.</small></div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 1 одновременное подключение</li>
+                            <li><i class="fas fa-check"></i> Серверы в 3 странах</li>
+                            <li><i class="fas fa-check"></i> Ограничение скорости 10 Мбит/с</li>
+                            <li><i class="fas fa-times"></i> Блокировка рекламы</li>
+                        </ul>
+                        <a href="#" class="btn-secondary">Начать бесплатно</a>
+                    </div>
+                    <div class="pricing-plan recommended">
+                        <div class="badge">Популярный</div>
+                        <h3>Премиум</h3>
+                        <div class="price"><span>₽</span>299 <small>/ мес.</small></div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 5 одновременных подключений</li>
+                            <li><i class="fas fa-check"></i> Серверы в 20+ странах</li>
+                            <li><i class="fas fa-check"></i> Максимальная скорость</li>
+                            <li><i class="fas fa-check"></i> Блокировка рекламы</li>
+                        </ul>
+                        <a href="#" class="cta-button">Выбрать Премиум</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">Что говорят наши пользователи</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <blockquote>«Наконец-то нашел VPN, который не нужно устанавливать как отдельное приложение. Все через Telegram, гениально и просто! Скорость отличная.»</blockquote>
+                        <cite>— Алексей, разработчик</cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <blockquote>«Пользуюсь для доступа к рабочим ресурсам из-за границы. Соединение стабильное, ни разу не подвело. Рекомендую.»</blockquote>
+                        <cite>— Мария, маркетолог</cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="container">
+                <h2>Готовы к безопасному интернету?</h2>
+                <p>Присоединяйтесь к тысячам пользователей Privado и защитите свою цифровую жизнь уже сегодня.</p>
+                <a href="#" class="cta-button"><i class="fab fa-telegram-plane"></i> Подключиться прямо сейчас</a>
+            </div>
+        </section>
+
     </main>
 
     <footer class="footer">
