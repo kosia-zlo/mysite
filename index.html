@@ -1,198 +1,291 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <title>Privado — Защити своё онлайн-пространство</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <style>
-    :root {
-      --bg-color: #f3f4f6;
-      --text-color: #111827;
-      --accent-color: #d1fae5; /* кислотный зеленоватый */
-      --sidebar-bg: #1f2937;
-      --card-bg: white;
-      --border-radius: 8px;
-      --padding: 1rem;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Константин - Начинающий Фронтенд-разработчик</title>
+    <style>
+        /* --- Общие стили --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f7f9;
+            color: #333;
+            line-height: 1.6;
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      display: flex;
-      flex-direction: column;
-    }
+        /* --- Шапка --- */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Для мобильных устройств */
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
 
-    @media (min-width: 768px) {
-      body {
-        flex-direction: row;
-      }
-    }
+        .header-info {
+            display: flex;
+            align-items: center;
+        }
 
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 25px;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
 
-    .sidebar {
-      width: 100%;
-      max-width: 250px;
-      background-color: var(--sidebar-bg);
-      color: white;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      height: fit-content;
-    }
+        .header-text h1 {
+            margin: 0;
+            font-size: 2.2em;
+            color: #2c3e50;
+        }
 
-    .sidebar h2 {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid #374151;
-      padding-bottom: 0.5rem;
-    }
+        .header-text p {
+            margin: 0;
+            font-size: 1.2em;
+            color: #7f8c8d;
+        }
 
-    .sidebar ul {
-      list-style: none;
-      padding-left: 0;
-    }
+        .social-links a {
+            font-size: 1.5em;
+            color: #3498db;
+            margin-left: 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-    .sidebar li {
-      margin-bottom: 0.75rem;
-    }
+        .social-links a:hover {
+            color: #2980b9;
+        }
+        
+        /* --- Основной контент --- */
+        .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
 
-    .sidebar a {
-      color: var(--accent-color);
-      font-weight: bold;
-      display: block;
-    }
+        .card h2 {
+            margin-top: 0;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            color: #2c3e50;
+        }
 
-    .sidebar a:hover {
-      text-decoration: underline;
-    }
+        /* --- Списки --- */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
 
-    .content {
-      flex: 1;
-      padding: 1rem 2rem;
-    }
+        ul li {
+            background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%233498db" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>') no-repeat left center;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
 
-    header {
-      background: var(--text-color);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-      border-radius: var(--border-radius);
-    }
+        /* --- Таблица хобби --- */
+        .hobby-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-    nav {
-      text-align: center;
-      margin: 1rem 0;
-    }
+        .hobby-table th, .hobby-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .hobby-table th {
+            background-color: #f2f2f2;
+        }
 
-    nav a {
-      margin: 0 1rem;
-      color: var(--accent-color);
-      font-weight: bold;
-    }
+        .hobby-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        /* --- Контакты и Футер --- */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
 
-    .card {
-      background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: var(--border-radius);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      margin-bottom: 1.5rem;
-    }
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #6b7280;
-      margin-top: 2rem;
-      padding: 2rem 1rem;
-      border-top: 1px solid #e5e7eb;
-    }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
 
-    @media (max-width: 768px) {
-      .content {
-        padding: 1rem;
-      }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box; /* Важно для правильной ширины */
+            font-family: inherit;
+        }
 
-      .sidebar {
-        display: none;
-      }
-    }
-  </style>
+        .btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        /* --- Адаптивность --- */
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-info {
+                flex-direction: column;
+            }
+            .avatar {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            .social-links {
+                margin-top: 15px;
+            }
+            .social-links a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-  <!-- Боковое меню -->
-  <aside class="sidebar">
-    <h2>Навигация</h2>
-    <ul>
-      <li><a href="index.html">Главная</a></li>
-      <li><a href="about.html">О сервисе</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="support.html">Поддержка</a></li>
-    </ul>
+    <div class="container">
 
-    <h2>Wiki</h2>
-    <ul>
-      <li><a href="wiki.html">Privado Wiki</a></li>
-      <li><a href="installation.html">Установка Privado</a></li>
-      <li><a href="compatibility.html">Совместимость</a></li>
-    </ul>
+        <header class="header">
+            <div class="header-info">
+                <img src="https://sun9-26.userapi.com/impg/GoyX1uA1U5z9n4uM_4E5uFjG84t_3T_hX5bI1w/s9JtG_5cSlY.jpg?size=810x1080&quality=96&sign=c222c9e7826f07297e5585fa50c77609&c_uniq_tag=pD-B_34f66t0wK0_JjJ60qT_0CjXy8mG2Y5JzY8916U&type=album" alt="Фото Константина" class="avatar">
+                <div class="header-text">
+                    <h1>Константин</h1>
+                    <p>Начинающий Фронтенд-разработчик</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://vk.com/id223838423" target="_blank" title="VK"><i class="fab fa-vk"></i></a>
+                <a href="https://github.com/kosia-zlo" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+            </div>
+        </header>
 
-    <h2>Telegram</h2>
-    <ul>
-      <li><a href="https://t.me/ghostvpn_bot " target="_blank">@ghostvpn_bot</a></li>
-    </ul>
-  </aside>
+        <main>
+            <section class="card">
+                <h2><i class="fas fa-user-alt"></i> Обо мне</h2>
+                <p>Привет! Меня зовут Константин, и я начинаю свой путь в мире фронтенд-разработки. Мне нравится создавать интерактивные и красивые интерфейсы. В настоящее время я активно изучаю стек веб-технологий и ищу возможность применить свои знания на практике.</p>
+            </section>
+            
+            <section class="card">
+                <h2><i class="fas fa-code"></i> Мои навыки</h2>
+                <ul>
+                    <li>HTML5 - Создание структурированной и семантической разметки.</li>
+                    <li>CSS3 - Стилизация элементов, основы адаптивной верстки.</li>
+                    <li>JavaScript (в процессе изучения) - Основы языка для создания интерактивности.</li>
+                    <li>Git & GitHub - Системы контроля версий для управления проектами.</li>
+                </ul>
+            </section>
+            
+            <section class="card">
+                <h2><i class="fas fa-gamepad"></i> Мои хобби</h2>
+                <table class="hobby-table">
+                    <thead>
+                        <tr>
+                            <th>Хобби</th>
+                            <th>Описание</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Программирование</td>
+                            <td>Решение интересных задач и создание чего-то нового.</td>
+                        </tr>
+                        <tr>
+                            <td>Компьютерные игры</td>
+                            <td>Отдых и развлечение в виртуальных мирах.</td>
+                        </tr>
+                         <tr>
+                            <td>Спорт</td>
+                            <td>Поддержание физической формы.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+             <section class="card">
+                <h2><i class="fas fa-project-diagram"></i> Мои проекты</h2>
+                <p>На данный момент мое портфолио в стадии наполнения. Этот сайт — один из моих первых самостоятельных проектов. Вы можете следить за моими работами на <a href="https://github.com/kosia-zlo" target="_blank">GitHub</a>.</p>
+            </section>
+            
+            <section class="card">
+                <h2><i class="fas fa-envelope"></i> Связаться со мной</h2>
+                <p>Если у вас есть вопросы или предложения, пожалуйста, заполните форму ниже. Я буду рад общению!</p>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Ваше имя:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Ваш Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Ваше сообщение:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Отправить</button>
+                </form>
+            </section>
+        </main>
 
-  <!-- Основной контент -->
-  <div class="content">
-    <header>
-      <h1>Privado</h1>
-      <p>Быстро. Безопасно. Анонимно.</p>
-    </header>
+        <footer class="footer">
+            <p>© 2025 Константин. Все права защищены.</p>
+        </footer>
 
-    <nav>
-      <a href="index.html">Главная</a> |
-      <a href="about.html">О сервисе</a> |
-      <a href="faq.html">FAQ</a> |
-      <a href="wiki.html">Wiki</a>
-    </nav>
-
-    <main>
-      <div class="card">
-        <h2>Добро пожаловать в Privado</h2>
-        <p>Privado — это защищённое соединение через Telegram, без сложных настроек. Мы не сохраняем логи, не отслеживаем активность, обеспечиваем шифрование и анонимность.</p>
-      </div>
-
-      <div class="card">
-        <h3>Почему Privado?</h3>
-        <ul>
-          <li>Шифрование данных</li>
-          <li>Серверы по всему миру</li>
-          <li>Поддержка мобильных устройств</li>
-          <li>Простое подключение через Telegram</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Telegram-бот</h3>
-        <p>Если у вас установлен Telegram, вы можете запустить бота <a href="https://t.me/ghostvpn_bot " target="_blank">@ghostvpn_bot</a>, чтобы начать использовать Privado прямо сейчас.</p>
-      </div>
-    </main>
-
-    <footer>
-      <p>&copy; 2025 Privado. Все права защищены.</p>
-    </footer>
-  </div>
-
+    </div>
 </body>
 </html>
