@@ -1,189 +1,111 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <title>FAQ — Privado</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <style>
-    :root {
-      --bg-color: #f3f4f6;
-      --text-color: #111827;
-      --accent-color: #d1fae5;
-      --sidebar-bg: #1f2937;
-      --card-bg: white;
-      --border-radius: 8px;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Privado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        /* --- ТОЧНО ТЕ ЖЕ СТИЛИ, ЧТО И В ABOUT.HTML --- */
+        :root{--primary-color:#007BFF;--primary-hover-color:#0056b3;--dark-bg:#12121c;--light-bg:#1a1a2e;--text-color:#e0e0e0;--secondary-text-color:#a0a0b0;--border-color:#2a2a40;}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background-color:var(--dark-bg);color:var(--text-color);line-height:1.7;}.container{max-width:900px;margin:0 auto;padding:0 20px;}.header{background-color:var(--dark-bg);padding:20px 0;border-bottom:1px solid var(--border-color);}.header .container{display:flex;justify-content:space-between;align-items:center;}.logo{font-size:1.8em;font-weight:bold;color:var(--primary-color);text-decoration:none;}.logo i{margin-right:10px;}.main-nav ul{margin:0;padding:0;list-style:none;display:flex;}.main-nav li{margin-left:25px;}.main-nav a{color:var(--text-color);text-decoration:none;font-weight:500;transition:color 0.3s ease;}.main-nav a:hover,.main-nav a.active{color:var(--primary-color);}.page-header{text-align:center;padding:60px 0 40px;border-bottom:1px solid var(--border-color);margin-bottom:40px;}.page-header h1{font-size:3em;margin:0;color:#fff;}
+        
+        /* --- Стили для аккордеона FAQ --- */
+        .faq-item {
+            background-color: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden; /* Для красивых скруглений */
+        }
+        .faq-item summary {
+            font-size: 1.3em;
+            font-weight: 500;
+            color: #fff;
+            padding: 20px;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item summary::after { /* Иконка-стрелочка */
+            content: '\f078'; /* Font Awesome chevron-down */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            transition: transform 0.3s ease;
+        }
+        .faq-item[open] summary::after {
+            transform: rotate(180deg);
+        }
+        .faq-item .faq-content {
+            padding: 0 20px 20px;
+            color: var(--secondary-text-color);
+        }
+        .faq-item[open] summary {
+            color: var(--primary-color);
+        }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      display: flex;
-      flex-direction: column;
-    }
-
-    @media (min-width: 768px) {
-      body {
-        flex-direction: row;
-      }
-    }
-
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-
-    .sidebar {
-      width: 100%;
-      max-width: 250px;
-      background-color: var(--sidebar-bg);
-      color: white;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      height: fit-content;
-    }
-
-    .sidebar h2 {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid #374151;
-      padding-bottom: 0.5rem;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .sidebar li {
-      margin-bottom: 0.75rem;
-    }
-
-    .sidebar a {
-      color: var(--accent-color);
-      font-weight: bold;
-      display: block;
-    }
-
-    .sidebar a:hover {
-      text-decoration: underline;
-    }
-
-    .content {
-      flex: 1;
-      padding: 1rem 2rem;
-    }
-
-    header {
-      background: var(--text-color);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-      border-radius: var(--border-radius);
-    }
-
-    nav {
-      text-align: center;
-      margin: 1rem 0;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      color: var(--accent-color);
-      font-weight: bold;
-    }
-
-    .card {
-      background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: var(--border-radius);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      margin-bottom: 1.5rem;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #6b7280;
-      margin-top: 2rem;
-      padding: 2rem 1rem;
-      border-top: 1px solid #e5e7eb;
-    }
-
-    @media (max-width: 768px) {
-      .content {
-        padding: 1rem;
-      }
-
-      .sidebar {
-        display: none;
-      }
-    }
-  </style>
+        .footer{text-align:center;padding:40px 0;margin-top:40px;border-top:1px solid var(--border-color);color:var(--secondary-text-color);}@media (max-width:768px){.header .container{flex-direction:column;}.main-nav{margin-top:20px;}.page-header h1{font-size:2.2em;}}
+    </style>
 </head>
 <body>
 
-  <!-- Боковое меню -->
-  <aside class="sidebar">
-    <h2>Навигация</h2>
-    <ul>
-      <li><a href="index.html">Главная</a></li>
-      <li><a href="about.html">О сервисе</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="support.html">Поддержка</a></li>
-    </ul>
-
-    <h2>Wiki</h2>
-    <ul>
-      <li><a href="wiki.html">Privado Wiki</a></li>
-      <li><a href="installation.html">Установка Privado</a></li>
-      <li><a href="compatibility.html">Совместимость</a></li>
-    </ul>
-
-    <h2>Telegram</h2>
-    <ul>
-      <li><a href="https://t.me/ghostvpn_bot " target="_blank">@ghostvpn_bot</a></li>
-    </ul>
-  </aside>
-
-  <!-- Основной контент -->
-  <div class="content">
-    <header>
-      <h1>Privado</h1>
-      <p>Вопросы и ответы</p>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo"><i class="fas fa-shield-alt"></i>Privado</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О сервисе</a></li>
+                    <li><a href="faq.html" class="active">FAQ</a></li>
+                    <li><a href="support.html">Поддержка</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <nav>
-      <a href="index.html">Главная</a> |
-      <a href="about.html">О сервисе</a> |
-      <a href="faq.html">FAQ</a> |
-      <a href="wiki.html">Wiki</a>
-    </nav>
-
     <main>
-      <div class="card">
-        <h2>Часто задаваемые вопросы</h2>
-        <h3>1. Как подключиться?</h3>
-        <p>Инструкции будут доступны позже.</p>
+        <div class="container">
+            <div class="page-header">
+                <h1>Часто задаваемые вопросы</h1>
+            </div>
 
-        <h3>2. Подходит ли для торрентов?</h3>
-        <p>Да, мы не сохраняем логи активности.</p>
+            <details class="faq-item" open>
+                <summary>Сохраняете ли вы логи моей активности?</summary>
+                <div class="faq-content">
+                    <p>Нет. Мы придерживаемся строгой политики No-Logs. Ваша активность в сети, история посещений и IP-адреса никогда не записываются и не хранятся на наших серверах.</p>
+                </div>
+            </details>
 
-        <h3>3. Есть ли мобильное приложение?</h3>
-        <p>Да, Privado доступен на Android и iOS.</p>
-      </div>
+            <details class="faq-item">
+                <summary>На каких устройствах я могу использовать Privado?</summary>
+                <div class="faq-content">
+                    <p>Вы можете использовать наш сервис на любом устройстве, которое поддерживает клиенты OpenVPN или WireGuard. Это включает Windows, macOS, Linux, iOS и Android.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Какую скорость соединения я получу?</summary>
+                <div class="faq-content">
+                    <p>Скорость зависит от многих факторов, включая ваше исходное подключение и загруженность сервера. Мы используем высокопроизводительные серверы, чтобы обеспечить максимально возможную скорость для комфортного стриминга и загрузок.</p>
+                </div>
+            </details>
+            
+            <details class="faq-item">
+                <summary>Это действительно бесплатно?</summary>
+                <div class="faq-content">
+                    <p>Мы предлагаем как бесплатные, так и премиум-тарифы. Бесплатный тариф имеет некоторые ограничения по скорости и выбору серверов, но он отлично подходит для базовых задач обеспечения безопасности.</p>
+                </div>
+            </details>
+
+        </div>
     </main>
 
-    <footer>
-      <p>&copy; 2025 Privado. Все права защищены.</p>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Privado. Все права защищены.</p>
+        </div>
     </footer>
-  </div>
 
 </body>
 </html>
