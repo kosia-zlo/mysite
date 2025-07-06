@@ -3,19 +3,31 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - Privado</title>
+    <title>FAQ и Установка - Privado</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
-        /* --- ТОЧНО ТЕ ЖЕ СТИЛИ, ЧТО И В ABOUT.HTML --- */
-        :root{--primary-color:#007BFF;--primary-hover-color:#0056b3;--dark-bg:#12121c;--light-bg:#1a1a2e;--text-color:#e0e0e0;--secondary-text-color:#a0a0b0;--border-color:#2a2a40;}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background-color:var(--dark-bg);color:var(--text-color);line-height:1.7;}.container{max-width:900px;margin:0 auto;padding:0 20px;}.header{background-color:var(--dark-bg);padding:20px 0;border-bottom:1px solid var(--border-color);}.header .container{display:flex;justify-content:space-between;align-items:center;}.logo{font-size:1.8em;font-weight:bold;color:var(--primary-color);text-decoration:none;}.logo i{margin-right:10px;}.main-nav ul{margin:0;padding:0;list-style:none;display:flex;}.main-nav li{margin-left:25px;}.main-nav a{color:var(--text-color);text-decoration:none;font-weight:500;transition:color 0.3s ease;}.main-nav a:hover,.main-nav a.active{color:var(--primary-color);}.page-header{text-align:center;padding:60px 0 40px;border-bottom:1px solid var(--border-color);margin-bottom:40px;}.page-header h1{font-size:3em;margin:0;color:#fff;}
+        /* --- Стили скопированы из других страниц для единообразия --- */
+        :root{--primary-color:#007BFF;--primary-hover-color:#0056b3;--dark-bg:#12121c;--light-bg:#1a1a2e;--text-color:#e0e0e0;--secondary-text-color:#a0a0b0;--border-color:#2a2a40;}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background-color:var(--dark-bg);color:var(--text-color);line-height:1.7;}.container{max-width:900px;margin:0 auto;padding:0 20px;}.header{background-color:var(--dark-bg);padding:20px 0;border-bottom:1px solid var(--border-color);}.header .container{display:flex;justify-content:space-between;align-items:center;}.logo{font-size:1.8em;font-weight:bold;color:var(--primary-color);text-decoration:none;}.logo i{margin-right:10px;}.main-nav ul{margin:0;padding:0;list-style:none;display:flex;}.main-nav li{margin-left:25px;}.main-nav a{color:var(--text-color);text-decoration:none;font-weight:500;transition:color 0.3s ease;}.main-nav a:hover,.main-nav a.active{color:var(--primary-color);}
         
-        /* --- Стили для аккордеона FAQ --- */
+        .page-header{text-align:center;padding:60px 0 40px;border-bottom:1px solid var(--border-color);margin-bottom:40px;}.page-header h1{font-size:3em;margin:0;color:#fff;}
+
+        /* --- Стили для секций и аккордеона FAQ --- */
+        .faq-section {
+            margin-bottom: 50px;
+        }
+        .faq-section h2 {
+            color: #fff;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
         .faq-item {
             background-color: var(--light-bg);
             border: 1px solid var(--border-color);
             border-radius: 10px;
             margin-bottom: 15px;
-            overflow: hidden; /* Для красивых скруглений */
+            overflow: hidden;
         }
         .faq-item summary {
             font-size: 1.3em;
@@ -28,7 +40,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        .faq-item summary::after { /* Иконка-стрелочка */
+        .faq-item summary::after {
             content: '\f078'; /* Font Awesome chevron-down */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
@@ -40,6 +52,13 @@
         .faq-item .faq-content {
             padding: 0 20px 20px;
             color: var(--secondary-text-color);
+        }
+        .faq-item .faq-content p {
+            margin-bottom: 10px;
+        }
+        .faq-item .faq-content a {
+            color: var(--primary-color);
+            text-decoration: underline;
         }
         .faq-item[open] summary {
             color: var(--primary-color);
@@ -67,36 +86,81 @@
     <main>
         <div class="container">
             <div class="page-header">
-                <h1>Часто задаваемые вопросы</h1>
+                <h1>FAQ и Установка</h1>
             </div>
 
-            <details class="faq-item" open>
-                <summary>Сохраняете ли вы логи моей активности?</summary>
-                <div class="faq-content">
-                    <p>Нет. Мы придерживаемся строгой политики No-Logs. Ваша активность в сети, история посещений и IP-адреса никогда не записываются и не хранятся на наших серверах.</p>
-                </div>
-            </details>
+            <div class="faq-section">
+                <h2>Инструкции по установке</h2>
+                
+                <details class="faq-item">
+                    <summary><i class="fas fa-rocket"></i> WireGuard</summary>
+                    <div class="faq-content">
+                        <p>WireGuard — это современный, быстрый и простой протокол VPN.</p>
+                        <p>1. <b>Получите ключ:</b> Запросите у нашего Telegram-бота ключ для WireGuard.</p>
+                        <p>2. <b>Скачайте приложение:</b> Установите официальный клиент <a href="https://www.wireguard.com/install/" target="_blank">WireGuard</a> для вашей операционной системы (Windows, macOS, Android, iOS).</p>
+                        <p>3. <b>Импортируйте ключ:</b> Откройте приложение WireGuard и импортируйте полученный файл конфигурации (.conf) или отсканируйте QR-код.</p>
+                        <p>4. <b>Подключитесь:</b> Активируйте соединение. Готово!</p>
+                    </div>
+                </details>
 
-            <details class="faq-item">
-                <summary>На каких устройствах я могу использовать Privado?</summary>
-                <div class="faq-content">
-                    <p>Вы можете использовать наш сервис на любом устройстве, которое поддерживает клиенты OpenVPN или WireGuard. Это включает Windows, macOS, Linux, iOS и Android.</p>
-                </div>
-            </details>
+                <details class="faq-item">
+                    <summary><i class="fas fa-ghost"></i> AmneziaWG</summary>
+                    <div class="faq-content">
+                        <p>AmneziaWG — это модификация WireGuard, разработанная для повышения устойчивости к блокировкам.</p>
+                        <p>1. <b>Получите ключ:</b> Запросите у нашего Telegram-бота ключ для AmneziaWG.</p>
+                        <p>2. <b>Скачайте приложение:</b> Установите клиент <a href="https://amnezia.org/ru/downloads" target="_blank">AmneziaVPN</a> для вашего устройства.</p>
+                        <p>3. <b>Добавьте конфигурацию:</b> В приложении AmneziaVPN нажмите на "+" и выберите опцию импорта из файла или по QR-коду.</p>
+                        <p>4. <b>Подключитесь:</b> Выберите импортированное соединение и нажмите "Подключиться".</p>
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary><i class="fas fa-stream"></i> VLESS</summary>
+                    <div class="faq-content">
+                        <p>VLESS — это гибкий протокол, часто используемый для обхода сложных систем фильтрации трафика.</p>
+                        <p>1. <b>Получите ключ:</b> Запросите у нашего Telegram-бота ключ в формате VLESS.</p>
+                        <p>2. <b>Выберите клиент:</b> Вам понадобится совместимый клиент, например, v2rayN (Windows), V2RayU (macOS) или v2rayNG (Android).</p>
+                        <p>3. <b>Импортируйте ключ:</b> Скопируйте ссылку на ключ (начинается с `vless://...`) и вставьте ее в вашем клиенте через опцию "Импорт из буфера обмена".</p>
+                        <p>4. <b>Подключитесь:</b> Выберите добавленный сервер и активируйте VPN-соединение.</p>
+                    </div>
+                </details>
 
-            <details class="faq-item">
-                <summary>Какую скорость соединения я получу?</summary>
-                <div class="faq-content">
-                    <p>Скорость зависит от многих факторов, включая ваше исходное подключение и загруженность сервера. Мы используем высокопроизводительные серверы, чтобы обеспечить максимально возможную скорость для комфортного стриминга и загрузок.</p>
-                </div>
-            </details>
-            
-            <details class="faq-item">
-                <summary>Это действительно бесплатно?</summary>
-                <div class="faq-content">
-                    <p>Мы предлагаем как бесплатные, так и премиум-тарифы. Бесплатный тариф имеет некоторые ограничения по скорости и выбору серверов, но он отлично подходит для базовых задач обеспечения безопасности.</p>
-                </div>
-            </details>
+                <details class="faq-item">
+                    <summary><i class="fas fa-door-open"></i> OpenVPN</summary>
+                    <div class="faq-content">
+                        <p>OpenVPN — это проверенный временем и очень надежный протокол VPN.</p>
+                        <p>1. <b>Получите файл:</b> Запросите у нашего Telegram-бота файл конфигурации .ovpn.</p>
+                        <p>2. <b>Скачайте клиент:</b> Установите официальный клиент <a href="https://openvpn.net/community-downloads/" target="_blank">OpenVPN Connect</a> для вашей платформы.</p>
+                        <p>3. <b>Импортируйте файл:</b> В приложении OpenVPN Connect выберите вкладку "Import Profile" и укажите путь к скачанному .ovpn файлу.</p>
+                        <p>4. <b>Подключитесь:</b> После импорта профиль появится в списке. Активируйте его для подключения.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="faq-section">
+                <h2>Общие вопросы</h2>
+
+                <details class="faq-item">
+                    <summary>Сохраняете ли вы логи моей активности?</summary>
+                    <div class="faq-content">
+                        <p>Нет. Мы придерживаемся строгой политики No-Logs. Ваша активность в сети, история посещений и IP-адреса никогда не записываются и не хранятся на наших серверах.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>На каких устройствах я могу использовать Privado?</summary>
+                    <div class="faq-content">
+                        <p>Вы можете использовать наш сервис на любом устройстве, которое поддерживает клиенты OpenVPN, WireGuard или VLESS. Это включает Windows, macOS, Linux, iOS и Android.</p>
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary>Это действительно бесплатно?</summary>
+                    <div class="faq-content">
+                        <p>Мы предлагаем как бесплатные, так и премиум-тарифы. Бесплатный тариф имеет некоторые ограничения по скорости и выбору серверов, но он отлично подходит для базовых задач обеспечения безопасности.</p>
+                    </div>
+                </details>
+            </div>
 
         </div>
     </main>
